@@ -25,6 +25,7 @@ const Gonderi = (props) => {
       <BegenBolumu
         gonderiyiBegen={() => gonderiyiBegen(gonderi.id)}
         begeniSayisi={gonderi.likes}
+        post={gonderi.id}
       />
       {/* Yorumlar da proplara dikkat istiyor! */}
       <Yorumlar yorumlar={gonderi.comments} />
