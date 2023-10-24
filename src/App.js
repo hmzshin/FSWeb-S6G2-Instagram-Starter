@@ -7,8 +7,6 @@
 // State hook u import edin
 import React, { useState } from "react";
 
-import "./sahte-veri";
-
 // Gönderiler (çoğul!) ve AramaÇubuğu bileşenlerini import edin, çünkü bunlar App bileşeni içinde kullanılacak
 // sahteVeri'yi import edin
 import "./App.css";
@@ -20,7 +18,7 @@ const App = () => {
   // Gönderi nesneleri dizisini tutmak için "gonderiler" adlı bir state oluşturun, **sahteVeri'yi yükleyin**.
   // Artık sahteVeri'ye ihtiyacınız olmayacak.
   // Arama çubuğunun çalışması için , arama kriterini tutacak başka bir state'e ihtiyacımız olacak.
-  const [gönderiler, setGönderiler] = useState(sahteVeri);
+  const [gonderiler, setGonderiler] = useState(sahteVeri);
   const [arama, setArama] = useState(null); // arama verilerini tutmak için değişken
   const gonderiyiBegen = (gonderiID) => {
     // const [gonderiId, setGonderiID] = useState(gonderiId);
@@ -36,15 +34,21 @@ const App = () => {
         - gönderinin idsi "gonderiID" ile eşleşirse, istenen değerlerle yeni bir gönderi nesnesi döndürün.
         - aksi takdirde, sadece gönderi nesnesini değiştirmeden döndürün.
      */
-    setGonderi(posts.map((post)=> {gonderiID == post.id ? }))
+
+    const guncelGonderi = gonderiler.map((gonderi) => {
+      if (gonderiID === gonderi.id) {
+        gonderi.likes = gonderi.likes + 1;
+      }
+      return gonderi;
+    });
+
+    setGonderiler(guncelGonderi);
   };
 
   return (
     <div className="App">
       <AramaCubugu />
-      <Gonderiler gonderiyiBegen="" gonderiler="" />
-
-      {/* Her bileşenin hangi proplara ihtiyaç duyduğunu kontrol edin, eğer ihtiyaç varsa ekleyin! */}
+      <Gonderiler gonderiyiBegen={gonderiyiBegen} gonderiler={gonderiler} />
     </div>
   );
 };
