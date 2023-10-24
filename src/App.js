@@ -55,7 +55,7 @@ const App = () => {
   const reset = (gonderiID) => {
     const yorumEkle = gonderiler.map((gonderi) => {
       if (gonderi.id == gonderiID) {
-        gonderi.comments.push({
+        gonderi.comments.unshift({
           id: 30,
           username: "teafıkasjd",
           text: inputDeğeri,
