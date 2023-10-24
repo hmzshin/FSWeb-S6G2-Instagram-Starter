@@ -15,8 +15,8 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "node_modules/.bin/cypress open",
     "eject": "react-scripts eject"
   },
@@ -37,5 +37,10 @@
   },
   "devDependencies": {
     "cypress": "^12.11.0"
+ 
   }
+
+
+ 
 }
+
