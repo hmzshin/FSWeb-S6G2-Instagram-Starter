@@ -4,7 +4,7 @@ import "./Gonderiler.css";
 
 const Gonderiler = (props) => {
   // 🔥 Gönderiler'in ebeveyninin doğru değişkenleri doğru şekilde ilettiğine emin olun!
-  const { gonderiyiBegen, gonderiler } = props;
+  const { gonderiyiBegen, gonderiler, reset, inputDegistir } = props;
 
   return (
     <div className="posts-container-wrapper">
@@ -12,6 +12,8 @@ const Gonderiler = (props) => {
         <Gonderi
           gonderiyiBegen={gonderiyiBegen}
           gonderi={gonderi}
+          reset={reset}
+          inputDegistir={inputDegistir}
           key={gonderi.id}
         />
       ))}

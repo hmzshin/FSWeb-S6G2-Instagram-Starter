@@ -9,7 +9,7 @@ import Input from "../Yorumlar/Input";
 
 const BegenBolumu = (props) => {
   // 🔥 Bu bileşenin parentının aşağıdaki propları düzgün gönderdiğinden emin olun.
-  const { gonderiyiBegen, begeniSayisi, post } = props;
+  const { gonderiyiBegen, begeniSayisi, reset, gonderi, inputDegistir } = props;
 
   return (
     <div>
@@ -20,7 +20,7 @@ const BegenBolumu = (props) => {
         <div className="like-section-wrapper">
           <FontAwesomeIcon icon={faComment} />
         </div>
-        <Input post={post} />
+        <Input reset={reset} gonderi={gonderi} inputDegistir={inputDegistir} />
       </div>
       <p className="like-number">{begeniSayisi} likes</p>
     </div>

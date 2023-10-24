@@ -45,10 +45,36 @@ const App = () => {
     setGonderiler(guncelGonderi);
   };
 
+  const [inputDeğeri, setInputDeğeri] = useState("");
+
+  const inputDegistir = (evt) => {
+    const { value } = evt.target;
+    setInputDeğeri(value);
+  };
+
+  const reset = (gonderiID) => {
+    const yorumEkle = gonderiler.map((gonderi) => {
+      if (gonderi.id == gonderiID) {
+        gonderi.comments.push({
+          id: 30,
+          username: "teafıkasjd",
+          text: inputDeğeri,
+        });
+      }
+      return gonderi;
+    });
+    setGonderiler(yorumEkle);
+  };
+
   return (
     <div className="App">
       <AramaCubugu />
-      <Gonderiler gonderiyiBegen={gonderiyiBegen} gonderiler={gonderiler} />
+      <Gonderiler
+        gonderiyiBegen={gonderiyiBegen}
+        gonderiler={gonderiler}
+        reset={reset}
+        inputDegistir={inputDegistir}
+      />
     </div>
   );
 };
